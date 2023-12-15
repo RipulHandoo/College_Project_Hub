@@ -1,5 +1,4 @@
-import exp from "constants";
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response, Router } from "express";
 import serverHealth from "../config/utils/serverHealth";
 import createUser from "../config/User/signUp";
 import loginUser from "../config/User/login";
@@ -7,7 +6,7 @@ import logout from "../config/User/logout";
 import delete_account from "../config/User/delete_account";
 import authenticate_user from "../config/middleware/auth";
 
-const userRouter = express.Router();
+const userRouter: Router = express.Router();
 
 userRouter.get("/", serverHealth);
 userRouter.post("/signUp", createUser);

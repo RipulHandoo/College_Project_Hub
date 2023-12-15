@@ -9,12 +9,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Asynchronously handles the logout request by clearing the 'auth_token' cookie.
+ *
+ * @param req - Express request object
+ * @param res - Express response object
+ * @returns A Promise that resolves to void
+ */
 function logout(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
+        // Clear the 'auth_token' cookie to perform the logout
         res.clearCookie("auth_token");
+        // Respond with a 200 OK status and a message indicating successful logout
         res.status(200).json({
             message: "Log-Out Successfully",
         });
     });
 }
+// Export the logout function as the default export for this module
 exports.default = logout;
