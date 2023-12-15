@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cookieParser from 'cookie-parser';
 import serverHealth from "./config/utils/serverHealth";
 import userRouter from "./routes/user";
+import awsRouter from "./routes/bucket";
 
 // to get the environment variables from .env file
 dotenv.config();
@@ -16,8 +17,9 @@ app.use(cookieParser());
 
 // setting up the routers
 
-app.get("/", serverHealth);
+app.get("/health", serverHealth);
 app.use("/user", userRouter);
+app.use("/", awsRouter)
 
 // starting the server
 app.listen(PORT, () => {
