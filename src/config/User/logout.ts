@@ -12,7 +12,7 @@ async function logout(req: Request, res: Response): Promise<void> {
   res.clearCookie("auth_token");
 
   // Respond with a 200 OK status and a message indicating successful logout
-  res.status(200).json({
+  res.status(202).json({
     message: "Log-Out Successfully",
   });
 }

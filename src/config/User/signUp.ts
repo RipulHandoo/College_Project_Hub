@@ -23,7 +23,7 @@ async function createUser(req: Request, res: Response): Promise<void> {
       "INSERT INTO users (PRN, name, password, createdAt) VALUES ($1, $2, $3, $4)",
       [user.prn, user.name, hashedPassword, time]
     );
-    res.status(200).json({
+    res.status(201).json({
       user,
     });
   } catch (error) {
